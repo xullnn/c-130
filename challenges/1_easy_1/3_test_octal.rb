@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 # require_relative '3_octal'
-require_relative '3_octal_v1'
+require_relative '3_octal_v2'
 
 class OctalTest < Minitest::Test
   def test_octal_1_is_decimal_1

@@ -35,29 +35,20 @@
 # attr_reader :row, :column
 
 # Brute
-start_time = Time.new
-all_cells = (1..8).to_a.product((1..8).to_a)
-all_eight_combinations = all_cells.combination(8).to_a
-
-class Array
-  def cannot_kill(another)
-    a,b = self.first, self.last
-    x,y = another.first, another.last
-    a != x && b != y && (a - x).abs != (b - y).abs
-  end
-end
-
-# p [1,1].cannot_kill [1,3]
-# p [1,1].cannot_kill [2,1]
-# p [1,1].cannot_kill [2,2]
-# p [1,1].cannot_kill [2,3]
-
-solutions = 0
-all_eight_combinations.each do |eight_queens|
-  solutions += 1 if eight_queens.combination(2).to_a.all? { |pair| pair.first.cannot_kill(pair.last) }
-end
-p solutions
-
-ending_time = Time.new
-p duration = ending_time - start_time
-puts "#{duration / 3600} hours "
+# start_time = Time.new
+# all_cells = (1..7).to_a.product((1..7).to_a)
+# first_choice = [1,1]
+#
+# class Array
+#   def cannot_kill(another)
+#     a,b = self.first, self.last
+#     x,y = another.first, another.last
+#     a != x && b != y && (a - x).abs != (b - y).abs
+#   end
+# end
+#
+# after_first_killed =  all_cells.delete_if { |cell| !first_choice.cannot_kill(cell) }
+# all_seven_unattackables = after_first_killed.combination(6).to_a.select do |seven_queens|
+#   seven_queens.combination(2).to_a.all? { |pair| pair.first.cannot_kill(pair.last) }
+# end
+# p all_seven_unattackables
