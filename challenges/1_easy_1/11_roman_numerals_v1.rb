@@ -16,6 +16,6 @@ class Integer
       when digit == 9 then marks.first + marks.last
       end
     end.reverse.join
-
   end
+
 end
