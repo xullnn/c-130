@@ -306,7 +306,7 @@ class BeerSong
   LYRICS = LYRICS_REPO::BEERSONG.split(/\n+/)
                                 .map(&:strip)
                                 .each_slice(2)
-                                .to_a.map { |tow_line_lyrics| tow_line_lyrics.join("\n")}
+                                .map { |tow_line_lyrics| tow_line_lyrics.join("\n")}
                                 .reverse
   def lyrics
     verses(99, 0)

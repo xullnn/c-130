@@ -684,49 +684,15 @@ end
 #   end
 # end
 
-class ManyBottles
-  def self.lyrics(num)
-    "#{num} bottles of beer on the wall, #{num} bottles of beer.\n" \
-    "Take one down and pass it around, #{num - 1} bottles of beer on the wall.\n"
-  end
-end
-
-class TwoBottles
-  def self.lyrics(num)
-    "#{num} bottles of beer on the wall, #{num} bottles of beer.\n" \
-    "Take one down and pass it around, #{num - 1} bottle of beer on the wall.\n"
-  end
-end
-
-class OneBottle
-  def self.lyrics(num)
-    "1 bottle of beer on the wall, 1 bottle of beer.\n" \
-    "Take it down and pass it around, no more bottles of beer on the wall.\n"
-  end
-end
-
-class NoBottle
-  def self.lyrics(num)
-    "No more bottles of beer on the wall, no more bottles of beer.\n" \
-    "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
-  end
-end
-
 class BeerSong
-  BOTTLE_TYPES = {
-    (3..99) => 'ManyBottles',
-    2 => 'TwoBottles',
-    1 => 'OneBottle',
-    0 => 'NoBottle'
-  }
+  BOTTLE_TYPES = ['NoBottle', 'OneBottle','TwoBottles']
 
   def find_bottle_type(num)
-    BOTTLE_TYPES.each { |k, v| return v if k === num }
+    BOTTLE_TYPES[num] || 'ManyBottles'
   end
 
-
   def verse(num)
-    Object.const_get(find_bottle_type(num)).lyrics(num)
+    Object.const_get(find_bottle_type(num)).return_lyrics(num)
   end
 
   def verses(*nums)
@@ -735,5 +701,33 @@ class BeerSong
 
   def lyrics
     verses(99, 0)
+  end
+end
+
+class ManyBottles
+  def self.return_lyrics(num)
+    "#{num} bottles of beer on the wall, #{num} bottles of beer.\n" \
+    "Take one down and pass it around, #{num - 1} bottles of beer on the wall.\n"
+  end
+end
+
+class TwoBottles
+  def self.return_lyrics(num)
+    "#{num} bottles of beer on the wall, #{num} bottles of beer.\n" \
+    "Take one down and pass it around, #{num - 1} bottle of beer on the wall.\n"
+  end
+end
+
+class OneBottle
+  def self.return_lyrics(num)
+    "1 bottle of beer on the wall, 1 bottle of beer.\n" \
+    "Take it down and pass it around, no more bottles of beer on the wall.\n"
+  end
+end
+
+class NoBottle
+  def self.return_lyrics(num)
+    "No more bottles of beer on the wall, no more bottles of beer.\n" \
+    "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
   end
 end
