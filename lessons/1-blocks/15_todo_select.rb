@@ -28,7 +28,7 @@ class Todo
 end
 
 class TodoList
-  attr_accessor :title
+  attr_accessor :title, :todos
 
   def initialize(title)
     @title = title
@@ -113,7 +113,7 @@ class TodoList
 
   def select
     selected_list = TodoList.new("Today's Todos")
-    self.each { |item| selected_list.add(item.clone) if yield(item) }
+    self.each { |item| selected_list.add(item) if yield(item) }
     selected_list
   end
 end
