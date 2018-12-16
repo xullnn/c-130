@@ -96,3 +96,24 @@ end
 array = %w(sue Pete alice Tyler rachel Kim bonnie)
 bubble_sort!(array) { |value| value.downcase }
 p array == %w(alice bonnie Kim Pete rachel sue Tyler)
+
+
+# def bubble_sort!(arr)
+#   swapped = true
+#   while swapped
+#     swapped = false
+#     (arr.size - 1).times do |i|
+#       if block_given?
+#         next if yield(arr[i]) <= yield(arr[i+1])
+#       else
+#         next if arr[i] < arr[i + 1]
+#       end
+#       arr[i], arr[i + 1] = arr[i + 1], arr[i]
+#       swapped = true
+#     end
+#   end
+# end
+#
+# array = %w(sue Pete alice Tyler rachel Kim bonnie)
+# bubble_sort!(array) { |value| value.downcase }
+# p array == %w(alice bonnie Kim Pete rachel sue Tyler)

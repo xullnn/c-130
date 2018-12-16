@@ -6,6 +6,7 @@ class Series
 
   def slices(num)
     raise ArgumentError if num < 1 || num > @digits.size
+
     slices = []
     @digits.each_index do |index|
       break if index > @digits.size - num
@@ -20,7 +21,7 @@ class Series
     if !string.is_a?(String) || string.match(/[^\d]/)
       raise ArgumentError, 'Invalid input string.'
     else
-      return string
+      string
     end
   end
 end
