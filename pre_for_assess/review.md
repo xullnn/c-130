@@ -336,20 +336,43 @@ $ gem env
 
 This prints a longish list of information about your RubyGems installation. Some of the more pertinent information produced by this command looks like this:
 
+```
+⮀ gem env
 RubyGems Environment:
- - RUBYGEMS VERSION: 2.4.8
- - RUBY VERSION: 2.2.4 (2015-12-16 patchlevel 230) [x86_64-linux]
- - INSTALLATION DIRECTORY: /usr/local/rvm/gems/ruby-2.2.4
- - RUBY EXECUTABLE: /usr/local/rvm/rubies/ruby-2.2.4/bin/ruby
- - EXECUTABLE DIRECTORY: /usr/local/rvm/gems/ruby-2.2.4/bin
-   ...
+ - RUBYGEMS VERSION: 2.7.8
+ - RUBY VERSION: 2.5.3 (2018-10-18 patchlevel 105) [x86_64-darwin17]
+ - INSTALLATION DIRECTORY: /Users/xullnn/.rvm/gems/ruby-2.5.3
+ - USER INSTALLATION DIRECTORY: /Users/xullnn/.gem/ruby/2.5.0
+ - RUBY EXECUTABLE: /Users/xullnn/.rvm/rubies/ruby-2.5.3/bin/ruby
+ - EXECUTABLE DIRECTORY: /Users/xullnn/.rvm/gems/ruby-2.5.3/bin
+ - SPEC CACHE DIRECTORY: /Users/xullnn/.gem/specs
+ - SYSTEM CONFIGURATION DIRECTORY: /Users/xullnn/.rvm/rubies/ruby-2.5.3/etc
+ - RUBYGEMS PLATFORMS:
+   - ruby
+   - x86_64-darwin-17
+ - GEM PATHS:
+    - /Users/xullnn/.rvm/gems/ruby-2.5.3
+    - /Users/xullnn/.rvm/gems/ruby-2.5.3@global
+ - GEM CONFIGURATION:
+    - :update_sources => true
+    - :verbose => true
+    - :backtrace => false
+    - :bulk_threshold => 1000
  - REMOTE SOURCES:
     - https://rubygems.org/
  - SHELL PATH:
-    - /home/ubuntu/.nvm/versions/node/v4.5.0/bin
-    - /usr/local/rvm/gems/ruby-2.2.4/bin
-    - /usr/local/rvm/gems/ruby-2.2.4@global/bin
-    ...
+    - /Users/xullnn/.rvm/gems/ruby-2.5.3/bin
+    - /Users/xullnn/.rvm/gems/ruby-2.5.3@global/bin
+    - /Users/xullnn/.rvm/rubies/ruby-2.5.3/bin
+    - /usr/local/bin
+    - /usr/bin
+    - /bin
+    - /usr/sbin
+    - /sbin
+    - /opt/X11/bin
+    - /usr/local/git/bin
+    - /Users/xullnn/.rvm/bin
+```
 
 Let's look at some of these settings:
 
