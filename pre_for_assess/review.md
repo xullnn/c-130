@@ -319,17 +319,13 @@ Note that the Mac system Ruby is not what we are using by default.
 ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
 ```
 
-All versions of Ruby since version 1.9 supply gem as part of the standard installation. So, you probably don't have to do anything special to get RubyGems if you're using a modern version of Ruby.
-
-Run `gem env` to get the information about RubyGems installation.
-
 Each version of Ruby on your system has its own `gem` command; if you have multiple versions of Ruby installed, then you have multiple versions of gem installed.
 
 Under the context of `.rvm` directory, we can see the top level directories are `rubies` and `gems`
 
 What are Gems?
 
-RubyGems, often just called Gems, are packages of code that you can download, install, and use in your Ruby programs or from the command line. The gem command manages your Gems; all versions of Ruby since version 1.9 supply gem as part of the standard installation. So, you probably don't have to do anything special to get RubyGems if you're using a modern version of Ruby.
+RubyGems, often just called Gems, are packages of code that you can download, install, and use in your Ruby programs or from the command line. The `gem` command manages your Gems; all versions of Ruby since version 1.9 supply gem as part of the standard installation. So, you probably don't have to do anything special to get RubyGems if you're using a modern version of Ruby.
 ```
 $ gem env
 ```
@@ -378,17 +374,17 @@ Let's look at some of these settings:
 
 RUBY VERSION
 
-This is the version number of the Ruby **associated with the `gem` command you just ran. Each version of Ruby on your system has its own gem command**; if you have multiple versions of Ruby installed, then you have multiple versions of gem installed. Checking the RUBY VERSION is a helpful diagnostic: if you see an unexpected version, you are likely using the wrong version of gem or ruby.
+This is the version number of the Ruby **associated with the `gem` command you just ran. Each version of Ruby on your system has its own `gem` command**; if you have multiple versions of Ruby installed, then you have multiple versions of gem installed. Checking the RUBY VERSION is a helpful diagnostic: if you see an unexpected version, you are likely using the wrong version of gem or ruby.
 
 RUBY EXECUTABLE
 
-This is the location of the ruby command that you should use with the Gems managed by this gem command. This information is often useful when RUBY VERSION reveals a gem/ruby mismatch.
+This is the location of the ruby command that you should use with the Gems managed by this `gem` command. This information is often useful when RUBY VERSION reveals a gem/ruby mismatch.
 
 INSTALLATION DIRECTORY
 
 This directory is where gem installs Gems by default.
 
-Let's look at this structure visually. Note that the following shows the directory structure under RVM; the structure will be different but similar with rbenv or a system ruby. The below diagram shows a RVM-managed Ruby version 2.2.4, with the bundler, freewill, pry, and rubocop gems installed.
+Let's look at this structure visually. Note that the following shows the directory structure under RVM; the structure will be different but similar with `rbenv` or a system ruby. The below diagram shows a RVM-managed Ruby version 2.2.4, with the bundler, freewill, pry, and rubocop gems installed.
 
 Figure 1
 
@@ -444,12 +440,12 @@ Note that the Gems are installed within a specific Ruby version; in this way, it
 
 When you run `rvm use VERSION` to change the Ruby version you want to use, you actually invoke the `rvm` function. It modifies your **environment** so that the various ruby commands invoke the correct version. For instance, `rvm use 2.2.4` modifies your `PATH` variable so that the ruby command uses the Ruby installed in the ruby-2.2.4 directory. It makes other changes as well, but the `PATH` change is the most noticeable.
 
-As we saw earlier, this command modifies your environment to ensure that the first ruby your system finds is version 2.2.4. This same change also works for related commands such as gem, irb and rubocop.
+As we saw earlier, this command modifies your environment to ensure that the first `ruby` your system finds is version 2.2.4. This same change also works for related commands such as `gem`, `irb` and `rubocop`.
 
 Suppose, though, that you want to use a different version of Ruby with one of your projects?
 - manually use `rvm use x.x.x` while you are in the project directory, but you need to remember changing that back when you leave that directory, and changing again when you back into the project, thus back and forth. It's not complex, but it's easy to forget.
 - There are several ways to do this, but the easiest is to create a `.ruby-version` file in your project's root directory; the content of this file is just the version number of ruby that you want to use when using programs from that directory.
-  - To make use of the `.ruby-version` file, RVM replaces the `cd` command from your shell with a shell function. This function invokes the real `cd` command, then checks for the `.ruby-version` file (it also checks for some other files we won't discuss). If it finds one of these files, it retrieves the version number from the file, and then modifies your environment in the same way the rvm function does. Thus, **every time you change directories with the cd command, RVM modifies your environment to run the proper Ruby version.**
+  - To make use of the `.ruby-version` file, RVM replaces the `cd` command from your shell with a shell function. This function invokes the real `cd` command, then checks for the `.ruby-version` file (it also checks for some other files we won't discuss). If it finds one of these files, it retrieves the version number from the file, and then modifies your environment in the same way the `rvm` function does. Thus, **every time you change directories with the `cd` command, RVM modifies your environment to run the proper Ruby version.**
 -RVM also uses the `Gemfile` for ruby projects that use Bundler (described in the next chapter). If the `Gemfile` contains a `ruby` directive, RVM uses that version of ruby to run the program. Note, however, that **the `.ruby-version` file takes precedence.**
 
 Dealing with dependencies -- multiple versions of Ruby and multiple versions of Gems -- is a significant issue in Ruby. A project may need a Ruby version that differs from your default Ruby. Even if it requires the same version of Ruby, it may need a different version of a RubyGem.
