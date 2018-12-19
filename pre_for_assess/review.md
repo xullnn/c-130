@@ -501,3 +501,15 @@ Could not locate Gemfile or .bundle/ directory
 when using `bundle exec rake`, this means that your project isn't using Bundler. Here, you should omit `bundle exec` and just run `rake` instead.
 
 Though we don't list these Gems in our `Gemfile`, the Gems we do list each have their own `Gemfile`, which, in turn, identifies their dependencies. Our project's dependencies have dependencies, too. By recursively scanning the `Gemfile`s for each Gem, Bundler builds a complete dependency list that identifies all the Gems your application needs, even those you don't know you need. Once Bundler has the dependency list, it installs any Gems that are not yet part of your Ruby installation.
+
+**before distribution:**
+
+Most Ruby projects use Rubygems as the distribution mechanism. This requires that you observe certain practices when building your project. Specifically, you must use a common directory structure and you must supply a ``.gemspec`(like sample_app.gemspec) file. Most Gems also include both a `Gemfile` and a `Rakefile`, but don't require them.
+
+From bundler doc:
+
+https://bundler.io/v1.17/guides/creating_gem.html#getting-started
+
+Gemfile: Used to manage gem dependencies for our library’s development. This file contains a `gemspec` line meaning that Bundler will include dependencies specified in `foodie.gemspec` too. It’s best practice to specify all the gems that our library depends on in the gemspec.
+
+foodie.gemspec: The Gem Specification file. This is where we provide information for Rubygems’ consumption such as the name, description and homepage of our gem. This is also where we specify the dependencies our gem needs to run.
