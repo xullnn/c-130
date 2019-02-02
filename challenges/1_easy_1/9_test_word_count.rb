@@ -85,7 +85,7 @@ class PhraseTest < Minitest::Test
     assert_equal counts, phrase.word_count
   end
 
-  def test_possessive_case_single_quotations
+  def test_possessive_case_single_quotations_1
     phrase = Phrase.new("Many boys' fathers' ages are over 50.")
     counts = {
       'many' => 1,
@@ -95,6 +95,19 @@ class PhraseTest < Minitest::Test
       'are' => 1,
       'over' => 1,
       '50' => 1
+    }
+    assert_equal counts, phrase.word_count
+  end
+
+  def test_possessive_case_single_quotations_2
+    phrase = Phrase.new("Hass' brother has many 'cats' and 'dogs'.")
+    counts = {
+      "Hass'" => 1,
+      "brother" => 1,
+      "has" => 1,
+      "many" => 1,
+      "cats" => 1,
+      "dogs" => 1
     }
     assert_equal counts, phrase.word_count
   end
